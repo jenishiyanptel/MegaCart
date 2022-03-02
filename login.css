@@ -1,0 +1,32 @@
+body{
+    background-color: lightgreen;
+  
+    text-align: center;
+}
+img{
+    border: 1px solid black;
+    padding-left: 80px;
+}
+#s1{
+    position: absolute;
+    top: 250px;
+    left: 550px;
+}
+#s2{
+    position: absolute;
+    top: 250px;
+    left: 880px;
+}
+#s3{
+    position: absolute;
+    top: 450px;
+    left: 550px;
+}
+#s4{
+    position: absolute;
+    top: 450px;
+    left: 880px;
+}
+#data1{
+    float: right;
+}

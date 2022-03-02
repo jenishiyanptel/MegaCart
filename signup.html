@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <script>
+        function signup(){
+         username=document.forms["myform"]["username"].value;
+         userlength=username.length;
+         email=document.forms["myform"]["emailid"].value;
+        mobile=document.forms["myform"]["mobile"].value.length;
+        password=document.forms["myform"]["password"].value;
+        confirm=document.forms["myform"]["cpassword"].value;
+        
+         //UserName
+         if(userlength<6 || userlength>10){
+             
+          alert("Enter Valid Name")
+          return false
+         }
+        
+         //Email
+        let emailPattern = new RegExp("(?=.*@)(?=.+.com)"); 
+
+            if(! emailPattern .test(email))
+         {
+            alert("enter correct emailid");
+            return false;
+         }
+        
+        
+        //mobile
+        // if(mobile!=10){
+        //     alert("enter correct mobile number");
+        //     return false;
+        // }
+        
+        let passwordpattern=new RegExp("(?=.*[0-9])(?=.*[@$_])(?=.*[a-z])(?=.*[A-Z])");
+        if(!passwordpattern.test(password)){
+            alert("Password should contain a digit,characters and one special character");
+            return false;
+        }
+        if(confirm!=password){
+            alert("password and confirm password is not matching");
+            return false;
+
+        }
+        sessionStorage.setItem('username',JSON.stringify(username));
+        sessionStorage.setItem('password',JSON.stringify(password));
+
+    }
+
+    </script>
+    <body>
+        <h1>The mega cart</h1>
+        
+        <form name="myform" onsubmit="return signup()" action="main.html">
+        <label for="username">Enter Username</label>
+        <input type="text" id="username"><br><br>
+        <label for="emailid">Enter EmailID</label>
+        <input type="text" id="emailid"><br><br>
+        <label for="mobile">Enter mobile Number</label>
+        <input type="text" id="mobile"><br><br>
+        <label for="password">Enter password</label>
+        <input type="password" name="password" id="password"/><br><br>
+        <label for="cpassword">Confirm password</label>
+        <input type="password" name="cpassword" id="cpassword"/><br><br>
+        <input type = "submit" value = "Submit">  
+    </form>
+    </body>
+
+</html>

@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="login.css">
+    </head>
+
+    <body>
+        <p id="data1"></p><br/>
+        <button onclick="logout()">Logout</button>
+        <h1 id="head"></h1>
+        <p>Please click on the item to add it to the card</p>
+        <ul>
+        <span id="s1">clothing</span>
+        <img id="clothing" src="images/clothing.jpg" alt="Clothing"  onclick="cart()">
+        
+        <img src="images/footwear.jpg" alt="" id="Footwear"  onclick="cart()" >
+        <span id="s2"> Footwear</span><br/>
+       
+        <img src="images/health.jpg" alt="" id="health" onclick="cart()">
+        <span id="s3">health</span>
+        <img src="images/school.jpg" alt="" id="School" onclick="cart()">
+        <span id="s4">School</span>
+    </ul>
+    <button onclick="window.location.href='item.html'">Click Here to View Cart </button>
+    </body>
+
+    <script>
+        user=JSON.parse(sessionStorage.getItem("username"));
+        document.getElementById('head').innerHTML=`Dear , ${user} Welcome to the Mega Cart...<br>`;
+        
+  
+        const d=new Date();
+        document.getElementById("data1").innerHTML = d;
+        function logout(){
+            window.location.href='login.html';
+localStorage.clear();
+
+}     
+     
+function  cart(){
+ var items=[];
+
+ document.getElementById("clothing").onclick=function(){
+         alert(`1 clothing item is added to cart`);
+         items1={
+             name:"clothing",
+             image:"image1",
+             cost:100,
+             daystodeliver:4
+         }
+         items.push(items1);
+         
+         localStorage.setItem('Cartitem',JSON.stringify(items));
+         
+       }
+        document.getElementById("Footwear").onclick=function(){
+         items1={
+             name:"Footwear",
+             image:"image1",
+             cost:500,
+             daystodeliver:4
+         }
+         items.push(items1);
+         localStorage.setItem('Cartitem',JSON.stringify(items));
+         alert(`1 Footwear item is added to cart`);
+
+
+       }
+       document.getElementById("health").onclick=function(){
+         items1={
+             name:"health",
+             image:"image1",
+             cost:500,
+             daystodeliver:4
+         }
+         items.push(items1);
+         localStorage.setItem('Cartitem',JSON.stringify(items));
+         alert(`1 Footwear item is added to cart`);
+       }
+       document.getElementById("School").onclick=function(){
+         items1={
+             name:"School",
+             image:"image1",
+             cost:500,
+             daystodeliver:4
+         }
+         items.push(items1);
+         localStorage.setItem('Cartitem',JSON.stringify(items));
+         alert(`1 Footwear item is added to cart`);
+       }
+       
+       
+}
+     
+       
+     
+ </script>
+</html>

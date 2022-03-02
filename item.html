@@ -1,0 +1,35 @@
+<html>
+    <link rel="stylesheet" href="login.css">
+   
+    <body>
+        <p id="data1"></p><br/>
+        <button onclick="logout()">Logout</button>
+     
+
+    </body>
+    <script>
+        values=[]
+       user=JSON.parse(sessionStorage.getItem("username"));
+       document.write(`<h1>Dear , ${user} Welcome to the Mega Cart...</h1><br>`)
+        var cost=0;
+        const d=new Date();
+        document.getElementById("data1").innerHTML = d;
+        values=JSON.parse(localStorage.getItem("Cartitem"));
+        
+        document.write(`You have bought ${values.length} items <br/><br/>`)
+        values.forEach((element) => {
+           
+            document.write(`Item ${element["name"]} costing Rs ${element["cost"]} will be delivered in ${element["daystodeliver"]} days.`+"\n")
+            document.write(`<br/>`)
+         cost+=parseInt(element["cost"]);
+        
+
+
+
+        });
+        document.write(`<br/>`)
+        document.write(`Your total bill is ${cost}`)
+       
+        
+    </script>
+</html>
